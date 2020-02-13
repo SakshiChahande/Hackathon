@@ -40,22 +40,10 @@ public class RegistrationActivity extends AppCompatActivity {
     private int[] index = {0, 9, 14, 19, 24, 6, 17, 28, 6};
     private UUID uid = UUID.randomUUID();
     int otp;
-    EditText pinCodeET;
-    EditText stateET;
-    EditText landmarkET;
-    EditText flatNoET;
     Timestamp timestamp;
-    EditText wingNoET;
-    EditText buildingNameET;
     String fullName;
     String email;
     String area;
-    String city;
-    String pinCode;
-    String state;
-    String landmark;
-    String flatNumber;
-    String wingNumber;
     Button register;
     String phoneNumber;
     ImageView customerImage;
@@ -79,7 +67,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
         Intent myIntent = getIntent();
         phoneNumber = myIntent.getStringExtra("phone_number");
-        //phoneNumber="+919820607092";
 
         //Getting data from all the EditText Views
         getAllViews();
@@ -101,6 +88,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 if(isAllFilled()) {
                     date = new Date();
                     timestamp = new Timestamp(date.getTime());
+
+
                     uploadDataToDB();
                     uploadImageFunction();
 
@@ -159,7 +148,6 @@ public class RegistrationActivity extends AppCompatActivity {
         return otp/10;
     }
 
-
     private void uploadDataToDB() {
 
         String uid=Integer.toString(randomUidGenerate()%10000);
@@ -192,7 +180,6 @@ public class RegistrationActivity extends AppCompatActivity {
 //        startActivity(intent);
 
     }
-
     private boolean isAllFilled() {
 
         //This functions return true if all the fields are entered.
@@ -228,7 +215,6 @@ public class RegistrationActivity extends AppCompatActivity {
         area = addressET.getText().toString().trim();
 
     }
-
     public void getAllViews() {
 
         //linking the widgets to the java objects
@@ -242,10 +228,3 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 }
-
-
-
-
-
-
-

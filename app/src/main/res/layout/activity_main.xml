@@ -26,7 +26,7 @@
 
             android:layout_height="180dp"
             android:layout_width="180dp"
-            android:src="@drawable/emplogo"/>
+            android:src="@drawable/lowes"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

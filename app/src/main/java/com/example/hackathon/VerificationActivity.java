@@ -50,11 +50,8 @@ public class VerificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification);
-
         FirebaseApp.initializeApp(this);
-
         db = FirebaseFirestore.getInstance();
-
         Log.e("Hi","kj");
         mAuth = FirebaseAuth.getInstance();
         pin= (Pinview) findViewById(R.id.otp);
@@ -246,7 +243,7 @@ public class VerificationActivity extends AppCompatActivity {
         if (user_exists_flag) {
             if (user_registered) {
 
-                Intent intent = new Intent(VerificationActivity.this, AddToLocation.class);
+                Intent intent = new Intent(VerificationActivity.this, HomeActivity.class);
                 //Stack is cleared so that the user can directly exit the app on "BACK" button press and not go to the login page again
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra("phone_number", phoneNumber);
