@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:weightSum="13"
     android:orientation="vertical"
     tools:context=".RegistrationActivity"
-    android:background="@color/white">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<LinearLayout
+    android:weightSum="13"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +34,9 @@
             android:layout_height="180dp"
             app:civ_border_color="@color/black_overlay"
             app:civ_border_width="2dp"
-            android:id="@+id/photo_upload">
+            android:id="@+id/photo_upload"
+            android:src="@drawable/ic_person"
+            >
 
         </de.hdodenhof.circleimageview.CircleImageView>
             <!--android:src="@drawable/ic_person" /-->
@@ -108,3 +118,4 @@
 
     </LinearLayout>
 </LinearLayout>
+</ScrollView>

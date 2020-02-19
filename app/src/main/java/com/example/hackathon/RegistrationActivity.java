@@ -51,7 +51,7 @@ public class RegistrationActivity extends AppCompatActivity {
     final private int PICK_IMG_REQUEST = 71;
     private Uri filepath;
     UploadTask uploadTask;
-
+    Customer customer;
     FirebaseStorage storage;
     StorageReference storageReference;
     FirebaseFirestore db;
@@ -162,7 +162,6 @@ public class RegistrationActivity extends AppCompatActivity {
                         intent.putExtra("phone_number",phoneNumber);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
-//                        startActivity(new Intent(CustomerRegistrationActivity.this, CustomerEntersId.class).putExtra("phone_number", phoneNumber));
                         finish();
                     }
                 })
@@ -220,9 +219,7 @@ public class RegistrationActivity extends AppCompatActivity {
         //linking the widgets to the java objects
         fullNameET = findViewById(R.id.customer_name);
         emailET = findViewById(R.id.customer_email);
-
         addressET = findViewById(R.id.customer_address);
-
         register = findViewById(R.id.submit);
         customerImage = findViewById(R.id.photo_upload);
 
