@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -47,7 +49,7 @@ public class RegistrationActivity extends AppCompatActivity {
     Button register;
     String phoneNumber;
     ImageView customerImage;
-
+    FirebaseAuth firebaseAuth;
     final private int PICK_IMG_REQUEST = 71;
     private Uri filepath;
     UploadTask uploadTask;
@@ -60,7 +62,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         FirebaseApp.initializeApp(this);
-
+        firebaseAuth=FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         final int pink = Color.parseColor("#e07810");
 

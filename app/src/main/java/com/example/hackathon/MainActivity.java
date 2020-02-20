@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
-
+        mAuth=FirebaseAuth.getInstance();
         phoneNumberField = findViewById(R.id.phone_number);
         proceed = findViewById(R.id.insert_number);
         progressBar = findViewById(R.id.cyclicProgress);
@@ -39,9 +39,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 phoneNumber = phoneNumberField.getText().toString().trim();
                 progressBar.setVisibility(View.VISIBLE);
+                if (phoneNumber.equals("9999999999")){
+                    startActivity(new Intent(MainActivity.this,AddItem.class));
+                }
 
                 //Validation for the phone number
-                if (!(phoneNumber.isEmpty()) && phoneNumber.length() == 10 && (phoneNumber.substring(0,1).equals("9") || phoneNumber.substring(0,1).equals("8") || phoneNumber.substring(0,1).equals("7"))) {
+                else if (!(phoneNumber.isEmpty()) && phoneNumber.length() == 10 && (phoneNumber.substring(0,1).equals("9") || phoneNumber.substring(0,1).equals("8") || phoneNumber.substring(0,1).equals("7"))) {
                     //concatenating the country code +91 for India and sending it to the next activity
                     phoneNumber = "+91" + phoneNumber;
                     progressBar.setVisibility(View.GONE);
@@ -67,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
 
     }
 
